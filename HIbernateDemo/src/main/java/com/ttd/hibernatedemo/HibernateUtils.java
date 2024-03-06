@@ -2,10 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.ttd.pojo;
+package com.ttd.hibernatedemo;
 
 import com.mysql.cj.xdevapi.SessionFactory;
+import com.ttd.pojo.Category;
+import com.ttd.pojo.Comment;
+import com.ttd.pojo.OrderDetail;
+import com.ttd.pojo.ProdTag;
+import com.ttd.pojo.Product;
+import com.ttd.pojo.SaleOrder;
 import java.util.Properties;
+import org.hibernate.Session;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 import org.hibernate.cfg.Configuration;
@@ -30,8 +37,17 @@ public class HibernateUtils {
         
         conf.setProperties(props);
         conf.addAnnotatedClass(Category.class);
-        
+        conf.addAnnotatedClass(OrderDetail.class);
+        conf.addAnnotatedClass(Comment.class);
+        conf.addAnnotatedClass(ProdTag.class);
+        conf.addAnnotatedClass(Product.class);
+        conf.addAnnotatedClass(SaleOrder.class);
+
         ServiceRegistry registry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
-        factory = conf.buildSessionFactory(registry);
+        factory = (SessionFactory) conf.buildSessionFactory(registry);
+    }
+
+    static Session getFactory() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

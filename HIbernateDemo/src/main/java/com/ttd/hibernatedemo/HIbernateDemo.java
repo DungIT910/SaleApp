@@ -5,7 +5,7 @@
 
 package com.ttd.hibernatedemo;
 
-import com.ttd.pojo.HibernateUtils;
+import org.hibernate.Session;
 
 /**
  *
@@ -14,6 +14,8 @@ import com.ttd.pojo.HibernateUtils;
 public class HIbernateDemo {
 
     public static void main(String[] args) {
-        try (Session s = HibernateUtils.get)
+        try (Session s = HibernateUtils.getFactory().openSession()) {
+            
+        }
     }
 }
