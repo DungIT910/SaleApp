@@ -5,10 +5,12 @@
 package com.ttd.pojo;
 
 import com.mysql.cj.xdevapi.SessionFactory;
-import java.lang.module.Configuration;
 import java.util.Properties;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+
 
 /**
  *
@@ -21,7 +23,7 @@ public class HibernateUtils {
         Configuration conf = new Configuration();
         Properties props = new Properties();
         props.put(Environment.DRIVER, "com.mysql.cj.Driver");
-        props.put(Environment.URL, "jdbc:mysql://localhost/testdb");
+        props.put(Environment.URL, "jdbc:mysql://localhost/saledb");
         props.put(Environment.USER, "root");
         props.put(Environment.PASS, "Admin@123");
         props.put(Environment.SHOW_SQL, "true");
